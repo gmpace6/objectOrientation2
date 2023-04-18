@@ -51,6 +51,9 @@ const dog = {
   dog['eyeColor'] = 'red'
   console.log(dog)
 
+delete dog.eyeColor
+delete dog['weight']
+
   for (let attribute in dog) {
     console.log(`The dog's ${attribute} is ${dog[attribute]}.`);
   }
@@ -64,4 +67,55 @@ function getValue(obj, prop){
     return obj[prop]
 }
 
+// let dog1 = {
+//     'name': 'Freida',
+//     'age': 9,
+//     'color': 'brown'
+//   };
+  
+//   let dog2 = {
+//     'name': 'Libby',
+//     'age': 3,
+//     'nickname': 'Libbers'
+//   };
+
+  function bark(dog){
+    console.log('Arf! I am', dog.name, 'the dog!');
+  }
+
 console.log(getValue(food, "price"))
+
+class Dog {
+    constructor(name, color){
+      this.name = name;
+      this.color = color;
+    }
+
+    bark(){
+      console.log('Arf! I am', this.name, 'the dog!');
+    }
+}
+
+
+
+let dog1 = new Dog('Freida', 'brown');
+let dog2 = new Dog('Sally', 'pink');
+
+console.log(dog1.name)  // Freida
+console.log(dog2.name)  // Sally
+
+dog1.bark()    // Arf, I'm Freida the dog!
+dog2.bark()    // Arf, I'm Sally the dog!
+
+  class Puppy extends Dog {
+    constructor(name, color, trainingLevel) {
+      super(name, color)
+  
+      this.trainingLevel = trainingLevel
+    }
+  
+    levelUp(num) {
+      this.trainingLevel += num
+    }
+  }
+
